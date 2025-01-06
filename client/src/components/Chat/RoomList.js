@@ -17,18 +17,28 @@ export const RoomList = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch('/api/rooms', {
+        const response = await fetch('http://localhost:5000/api/rooms/roomlist', {
           method: 'GET',
           headers: {
-    
             Authorization: `Bearer ${user.token}`,
             'Content-Type': 'application/json',
           },
           credentials: 'include',
         });
-
+        console.log(response.body);
+        const contentType = response.headers.get('Content-Type');
+        console.log(contentType);
+        // if (!response.ok) {
+        //   const text = await response.text(); // Log the HTML response if it's not JSON
+        //   throw new Error(`HTTP error! Status: ${response.status}, Response: ${text}`);
+        // }
+        console.log("hel")
         const data = await response.json();
-        if (!response.ok) throw new Error(data.error);
+        console.log(data);
+        if (!response.ok){
+          console.log("helloooo");
+          throw new Error(data.error);
+        }
         setRooms(data);
         
         // Initialize joined rooms from the fetched data
@@ -38,13 +48,64 @@ export const RoomList = () => {
         setJoinedRooms(joined);
       } catch (err) {
         console.error('Error fetching rooms:', err.message);
-        setError('Failed to fetch rooms.');
+        setError('Please Login to see rooms');
       }
     };
 
     fetchRooms();
   }, []);
-
+  // useEffect(() => {
+  //   const fetchRooms = async () => {
+  //     try {
+  //       const response = await fetch('/api/rooms/roomlist', {
+  //         method: 'GET',
+  //         headers: {
+  //            'Authorization': `Bearer ${user.token}`,
+  //           'Content-Type': 'application/json',
+  //         },
+  //         credentials: 'include',
+  //       });
+  //       console.log(response.body)
+  //       const contentType = response.headers.get('Content-Type');
+  //       console.log(contentType);
+  
+  //       if (!response.ok) {
+  //         const errorText = await response.text();  // Read the body as text if it's an error
+  //         throw new Error(`HTTP error! Status: ${response.status}, Response: ${errorText}`);
+  //       }
+  
+  //       // Only parse JSON if the content type is JSON
+  //       if (contentType && contentType.includes('application/json')) {
+  //         const data = await response.body.json();
+  //         console.log(data);
+  
+  //         setRooms(data);
+  
+  //         // Initialize joined rooms from the fetched data
+  //         const joined = new Set(
+  //           data
+  //             .filter(room => room.members.some(member => member._id === user.id))
+  //             .map(room => room._id)
+  //         );
+  //         setJoinedRooms(joined);
+  //       } else if (contentType && contentType.includes('text/html')) {
+  //         // If the content is HTML (likely an error page), read it as text
+  //         const htmlResponse = await response.text();
+  //         console.error("Received HTML response instead of JSON:", htmlResponse);
+  //         throw new Error("Expected JSON, but received HTML response.");
+  //       } else {
+  //         // Handle any other unexpected content types
+  //         throw new Error('Unexpected response format');
+  //       }
+  //     } catch (err) {
+  //       console.error('Error fetching rooms:', err.message);
+  //       setError('Failed to fetch rooms.');
+  //     }
+  //   };
+  
+  //   fetchRooms();
+  // }, [user.token, user.id]);
+  
   const handleRoomClick = (room) => {
     if (joinedRooms.has(room._id)) {
       // If already joined, navigate directly to the room
@@ -61,7 +122,7 @@ export const RoomList = () => {
 
   const handleJoinRoom = async (room, password = null) => {
     try {
-      const response = await fetch(`/api/rooms/${room._id}/join`, {
+      const response = await fetch(`http://localhost:5000/api/rooms/${room._id}/join`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

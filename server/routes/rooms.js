@@ -10,13 +10,14 @@ const authenticateToken = require('../middleware/auth');
 router.use(authenticateToken);
 
 // Get all rooms
-router.get('/', async (req, res) => {
+router.get('/roomlist', async (req, res) => {
     try {
         const rooms = await Room.find()
             .select('-password')
             .populate('createdBy', 'username')
             .populate('members', 'username');
 
+        //console.log(rooms);
         const formattedRooms = rooms.map((room) => ({
             ...room.toObject(),
             members: room.members.map(member => ({
@@ -24,8 +25,9 @@ router.get('/', async (req, res) => {
                 username: member.username
             }))
         }));
-
-        res.json(formattedRooms);
+        //console.log(formattedRooms);
+        res.status(201).json(formattedRooms);
+        console.log(formattedRooms);
     } catch (error) {
         res.status(500).json({ error: 'Server error' });
     }
@@ -66,13 +68,14 @@ router.post('/', async (req, res) => {
         });
 
         await room.save();
-
+        console.log(room);
         const populatedRoom = await Room.findById(room._id)
             .select('-password')
             .populate('members', 'username');
-
+        console.log(populatedRoom);
         res.status(201).json(populatedRoom);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Failed to create room' });
     }
 });

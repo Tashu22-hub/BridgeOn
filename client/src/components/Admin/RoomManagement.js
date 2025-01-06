@@ -27,7 +27,8 @@ const RoomManagement = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await fetch('http://localhost:5000/api/rooms', {
+      const response = await fetch('http://localhost:5000/api/rooms/roomlist', {
+        method:'GET',
         headers: {
   
           Authorization: `Bearer ${user.token}`,

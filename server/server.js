@@ -14,9 +14,10 @@ const io = socketio(server, {
     cors: {
         origin:"http://localhost:3000",
        
-        methods: ['GET', 'POST','PUT','DELETE'],
+        methods: ['GET','POST','PUT','DELETE'],
         allowedHeaders: ['Authorization', 'Content-Type','my-custom-header'],
         credentials: true,
+        transports: ['websocket', 'polling']
     }
 });
 
