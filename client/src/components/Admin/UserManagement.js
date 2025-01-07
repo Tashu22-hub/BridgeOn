@@ -66,62 +66,58 @@ export const UserManagement = () => {
 
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-6">User Management</h2>
+<div>
+      <h2 className="text-2xl font-bold mb-6 text-purple-600">User Management</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
-
       {successMessage && (
-        <div className="bg-green-50 text-green-500 p-3 rounded mb-4">
+        <div className="bg-purple-100 text-purple-600 p-3 rounded mb-4">
           {successMessage}
         </div>
       )}
 
-
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
-          <thead className="bg-gray-50">
+        <table className="min-w-full bg-gray-900">
+          <thead className="bg-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
                 Username
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
                 Role
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
                 Join Date
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-100 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-300">
             {users.map((user) => (
               <tr key={user._id}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {user.username}
-                </td>
+                <td className="px-6 text-gray-50 py-4 whitespace-nowrap">{user.username}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <select
                     value={user.role}
                     onChange={(e) => handleRoleChange(user._id, e.target.value)}
-                    className="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    className="rounded-md bg-gray-700 text-gray-50 border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
                   >
                     <option value="guest">Guest</option>
                     <option value="member">Member</option>
                     <option value="admin">Admin</option>
                   </select>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                <td className="px-6 py-4 text-gray-50 whitespace-nowrap">
                   {new Date(user.joinDate).toLocaleDateString()}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <button
                     onClick={() => {
-    setSelectedUser(user);
-    setIsDetailsModalOpen(true);
+                      setSelectedUser(user);
+                      setIsDetailsModalOpen(true);
                     }}
-                    className="text-blue-500 hover:text-blue-700 mr-2"
+                    className="text-purple-600 hover:text-purple-700 mr-2"
                   >
                     View Details
                   </button>
@@ -131,19 +127,17 @@ export const UserManagement = () => {
           </tbody>
         </table>
       </div>
-            
-    {selectedUser && (
-      <UserDetailsModal
-        user={selectedUser}
-        isOpen={isDetailsModalOpen}
-        onClose={() => {
-          setIsDetailsModalOpen(false);
-          setSelectedUser(null);
-        }}
-      />
-    )}
 
-
+      {selectedUser && (
+        <UserDetailsModal
+          user={selectedUser}
+          isOpen={isDetailsModalOpen}
+          onClose={() => {
+            setIsDetailsModalOpen(false);
+            setSelectedUser(null);
+          }}
+        />
+      )}
     </div>
   );
 };

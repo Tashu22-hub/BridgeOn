@@ -8,16 +8,16 @@ export const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('rooms');
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
+    <div className="container mx-auto p-4 bg-black text-white">
+      <h1 className="text-3xl font-bold mb-6 text-purple-600">Admin Dashboard</h1>
       
       <div className="mb-6">
-        <nav className="flex space-x-4 border-b">
+        <nav className="flex space-x-4 border-b border-gray-700">
           <button
             className={`py-2 px-4 ${
               activeTab === 'rooms'
-                ? 'border-b-2 border-blue-500 text-blue-500'
-                : 'text-gray-500'
+                ? 'border-b-2 border-purple-500 text-purple-500'
+                : 'text-gray-400'
             }`}
             onClick={() => setActiveTab('rooms')}
           >
@@ -26,8 +26,8 @@ export const AdminDashboard = () => {
           <button
             className={`py-2 px-4 ${
               activeTab === 'users'
-                ? 'border-b-2 border-blue-500 text-blue-500'
-                : 'text-gray-500'
+                ? 'border-b-2 border-purple-500 text-purple-500'
+                : 'text-gray-400'
             }`}
             onClick={() => setActiveTab('users')}
           >
@@ -36,8 +36,8 @@ export const AdminDashboard = () => {
           <button
             className={`py-2 px-4 ${
               activeTab === 'statistics'
-                ? 'border-b-2 border-blue-500 text-blue-500'
-                : 'text-gray-500'
+                ? 'border-b-2 border-purple-500 text-purple-500'
+                : 'text-gray-400'
             }`}
             onClick={() => setActiveTab('statistics')}
           >
@@ -45,6 +45,7 @@ export const AdminDashboard = () => {
           </button>
         </nav>
       </div>
+
 
       {activeTab === 'rooms' && <RoomManagement/>}
       {activeTab === 'users' && <UserManagement />}

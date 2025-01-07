@@ -45,7 +45,7 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-black">
           <Header />
           <main className="container mx-auto p-4">
             <Routes>

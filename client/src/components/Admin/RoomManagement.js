@@ -176,22 +176,24 @@ const RoomManagement = () => {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">Name</label>
+        <label className="block text-sm font-medium text-white">Name</label>
         <input
           type="text"
           value={formData.name}
           onChange={handleInputChange("name")}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="mt-1 block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+
           required
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700">Description</label>
+        <label className="block text-sm font-medium text-white">Description</label>
         <textarea
           value={formData.description}
           onChange={handleInputChange("description")}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 min-h-[100px] resize-y"
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 text-black focus:ring-purple-500 min-h-[100px] resize-y"
+
           rows="3"
           placeholder="Enter room description"
         />
@@ -202,9 +204,10 @@ const RoomManagement = () => {
           type="checkbox"
           checked={formData.isPrivate}
           onChange={handleInputChange("isPrivate")}
-          className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          className="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+          
         />
-        <label className="ml-2 block text-sm text-gray-900">Private Room</label>
+        <label className="ml-2 block text-sm text-white">Private Room</label>
       </div>
 
       {formData.isPrivate && (
@@ -214,7 +217,8 @@ const RoomManagement = () => {
             type="password"
             value={formData.password}
             onChange={handleInputChange("password")}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-1 block text-black w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+            
           />
         </div>
       )}
@@ -227,7 +231,7 @@ const RoomManagement = () => {
 
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="w-full bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
       >
         {submitText}
       </button>
@@ -240,10 +244,10 @@ const RoomManagement = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Room Management</h2>
+        <h2 className="text-2xl font-bold text-purple-700">Room Management</h2>
         <button
           onClick={() => setIsCreateModalOpen(true)}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+          className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600"
         >
           Create New Room
         </button>
@@ -251,7 +255,7 @@ const RoomManagement = () => {
 
       {loading && (
         <div className="flex justify-center items-center h-20">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
         </div>
       )}
 
@@ -273,7 +277,7 @@ const RoomManagement = () => {
             key={room._id}
             className="border rounded-lg p-4 bg-white shadow"
           >
-            <h3 className="text-xl font-bold mb-2">{room.name}</h3>
+            <h3 className="text-xl font-bold mb-2 text-purple-700">{room.name}</h3>
             <p className="text-gray-600 mb-4">{room.description}</p>
             <div className="flex justify-between items-center">
               <span
@@ -288,7 +292,7 @@ const RoomManagement = () => {
               <div className="space-x-2">
                 <button
                   onClick={() => openEditModal(room)}
-                  className="text-blue-500 hover:text-blue-700"
+                  className="text-purple-500 hover:text-purple-700"
                 >
                   Edit
                 </button>

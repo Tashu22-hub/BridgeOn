@@ -13,15 +13,15 @@ export const MessageList = ({ messages }) => {
   }, [messages]);
 
   return (
-    <div className="flex-1 p-4 overflow-y-auto">
+    <div className="flex-1 p-4 overflow-y-auto bg-gray-900">
       {messages.map((message, index) => (
         <div
           key={index}
-          className={`mb-4 ${
-            message.user === 'admin' ? 'text-gray-500 italic' : ''
-          }`}
+          className={`mb-4 p-3 rounded-lg ${
+            message.user === 'admin' ? 'bg-gray-200 text-gray-500 italic' : 'bg-purple-100 text-gray-900'
+}`}
         >
-          <span className="font-bold">{message.user  || 'Unknown'}: </span>
+          <span className="font-bold text-purple-600">{message.user  || 'Unknown'}: </span>
           <span>{message.text || '[No message]'}</span>
         </div>
       ))}

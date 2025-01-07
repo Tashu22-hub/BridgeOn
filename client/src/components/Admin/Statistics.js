@@ -83,9 +83,7 @@ export const Statistics = () => {
     );
   }
 
-  if (loading) return <div className="flex justify-center items-center h-64">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-  </div>;
+  if (loading) return <div className="flex justify-center items-center h-64"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div></div>;
 
   if (error) return <div className="text-red-500 text-center p-4">Error: {error}</div>;
 
@@ -101,13 +99,13 @@ export const Statistics = () => {
   ];
 
   return (
-    <div className="space-y-8">
+ <div className="space-y-8 text-white">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Dashboard Statistics</h2>
+        <h2 className="text-2xl font-bold text-purple-600">Dashboard Statistics</h2>
         <select
           value={timeRange}
           onChange={(e) => setTimeRange(e.target.value)}
-          className="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+          className="rounded-md bg-gray-700 border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
         >
           <option value="day">Last 24 Hours</option>
           <option value="week">Last Week</option>
@@ -141,21 +139,21 @@ export const Statistics = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* User Growth Chart */}
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-lg font-medium mb-4">User Growth</h3>
+        <div className="bg-gray-800 p-6 rounded-lg shadow">
+          <h3 className="text-lg font-medium mb-4 text-purple-500">User Growth</h3>
           <LineChart width={500} height={300} data={stats.userGrowth}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="users" stroke="#8884d8" />
+            <Line type="monotone" dataKey="users" stroke="#8B5CF6" />
           </LineChart>
         </div>
 
         {/* User Distribution */}
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-lg font-medium mb-4">User Distribution</h3>
+        <div className="bg-gray-800 p-6 rounded-lg shadow">
+          <h3 className="text-lg font-medium mb-4 text-purple-500">User Distribution</h3>
           <PieChart width={400} height={300}>
             <Pie
               data={userRoleData}
@@ -176,8 +174,8 @@ export const Statistics = () => {
         </div>
 
         {/* Room Types */}
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-lg font-medium mb-4">Room Types</h3>
+        <div className="bg-gray-800 p-6 rounded-lg shadow">
+          <h3 className="text-lg font-medium mb-4 text-purple-500">Room Types</h3>
           <PieChart width={400} height={300}>
             <Pie
               data={roomTypeData}
@@ -198,15 +196,15 @@ export const Statistics = () => {
         </div>
 
         {/* Activity Chart */}
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-lg font-medium mb-4">Daily Activity</h3>
+        <div className="bg-gray-800 p-6 rounded-lg shadow">
+          <h3 className="text-lg font-medium mb-4 text-purple-500">Daily Activity</h3>
           <BarChart width={500} height={300} data={stats.activityData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="hour" />
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="activeUsers" fill="#8884d8" />
+            <Bar dataKey="activeUsers" fill="#8B5CF6" />
           </BarChart>
         </div>
       </div>
@@ -215,13 +213,13 @@ export const Statistics = () => {
 };
 
 const StatCard = ({ title, value, subtitle }) => (
-  <div className="bg-white rounded-lg shadow p-6">
-    <h3 className="text-gray-500 text-sm font-medium">{title}</h3>
+  <div className="bg-gray-800 rounded-lg shadow p-6">
+    <h3 className="text-gray-400 text-sm font-medium">{title}</h3>
     <div className="mt-2">
-      <p className="text-3xl font-semibold text-gray-900">{value}</p>
+      <p className="text-3xl font-semibold text-white">{value}</p>
     </div>
     {subtitle && (
-      <p className="text-gray-500 text-sm mt-1">{subtitle}</p>
+      <p className="text-gray-400 text-sm mt-1">{subtitle}</p>
     )}
   </div>
 );

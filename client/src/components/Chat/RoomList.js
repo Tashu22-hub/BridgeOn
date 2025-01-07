@@ -150,25 +150,25 @@ export const RoomList = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Available Rooms</h2>
+<div className="container mx-auto p-4 bg-black min-h-screen text-white">
+      <h2 className="text-3xl font-bold mb-6 text-center text-purple-500">Available Rooms</h2>
       
-      {error && <div className="text-red-500 mb-4">{error}</div>}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {rooms.map((room) => (
           <div
             key={room._id}
-            className="border rounded-lg p-4 hover:shadow-lg transition-shadow"
+            className="bg-gray-800 border border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow"
           >
-            <h3 className="text-xl font-bold">{room.name}</h3>
-            <p className="text-gray-600">{room.description}</p>
+            <h3 className="text-2xl font-bold mb-2 text-white">{room.name}</h3>
+            <p className="text-gray-300">{room.description}</p>
             <div className="mt-4 flex items-center justify-between">
-              <span className={`text-sm ${room.isPrivate ? 'text-red-500' : 'text-green-500'}`}>
+              <span className={`text-sm ${room.isPrivate ? 'text-red-400' : 'text-green-400'}`}>
                 {room.isPrivate ? 'Private' : 'Public'}
               </span>
               <button
                 onClick={() => handleRoomClick(room)}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700"
               >
                 {joinedRooms.has(room._id) ? 'Continue Chatting' : 'Join Room'}
               </button>
@@ -193,13 +193,13 @@ export const RoomList = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Room Password"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-gray-700 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
             {error && <p className="text-red-500 text-sm">{error}</p>}
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="w-full bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700"
             >
               Join
             </button>

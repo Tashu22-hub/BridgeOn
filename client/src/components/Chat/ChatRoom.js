@@ -125,14 +125,14 @@ export const ChatRoom = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
-      <div className="flex-1 overflow-hidden">
+    <div className="flex flex-col h-screen bg-black text-white">
+      <div className="flex-1 overflow-hidden bg-gray-900">
         <MessageList messages={messages} />
       </div>
       <MessageInput onSendMessage={sendMessage} />
-      <div className="p-4 bg-gray-100">
-        <h3 className="font-bold">Online Users:</h3>
-        <ul>
+      <div className="p-4 bg-purple-700">
+        <h3 className="font-bold text-white">Online Users:</h3>
+        <ul className="text-gray-300">
           {users.map((username, index) => (
             <li key={index}>{username}</li>
           ))}
@@ -141,6 +141,7 @@ export const ChatRoom = () => {
     </div>
   );
 };
+
 
 export default ChatRoom;
 
