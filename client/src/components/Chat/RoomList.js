@@ -25,18 +25,18 @@ export const RoomList = () => {
           },
           credentials: 'include',
         });
-        console.log(response.body);
+        
         const contentType = response.headers.get('Content-Type');
-        console.log(contentType);
+        
         // if (!response.ok) {
         //   const text = await response.text(); // Log the HTML response if it's not JSON
         //   throw new Error(`HTTP error! Status: ${response.status}, Response: ${text}`);
         // }
-        console.log("hel")
+        
         const data = await response.json();
-        console.log(data);
+        
         if (!response.ok){
-          console.log("helloooo");
+          
           throw new Error(data.error);
         }
         setRooms(data);

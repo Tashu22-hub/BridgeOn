@@ -68,11 +68,11 @@ router.post('/', async (req, res) => {
         });
 
         await room.save();
-        console.log(room);
+       
         const populatedRoom = await Room.findById(room._id)
             .select('-password')
             .populate('members', 'username');
-        console.log(populatedRoom);
+        
         res.status(201).json(populatedRoom);
     } catch (error) {
         console.log(error);
