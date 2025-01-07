@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/db');
 
+
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
@@ -36,6 +37,7 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/rooms', require('./routes/rooms'));
@@ -46,6 +48,9 @@ require('./socketHandlers/chatHandler')(io);
 
 // Connect to MongoDB
 connectDB();
+
+
+ 
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
