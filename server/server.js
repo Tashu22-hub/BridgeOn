@@ -25,7 +25,7 @@ const io = socketio(server, {
 // Middleware
 app.use(helmet());
 app.use(cors({
-    origin:"http://localhost:3000",
+    origin:"https://connect-on-frontend.vercel.app",
     credentials: true
 }));
 app.use(express.json());
