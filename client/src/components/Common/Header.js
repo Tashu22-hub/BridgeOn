@@ -15,13 +15,13 @@ export const Header = () => {
     <header className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-purple-500 text-xl font-bold">
-          ConnectON
+        BridgeOn
         </Link>
         <nav className="space-x-4">
           {user ? (
             <>
               <Link to="/rooms" className="text-purple-500 hover:text-purple-700">
-                ROOMS
+                HUBS
               </Link>
               {user.role === 'admin' && (
                 <Link to="/admin" className="text-purple-500 hover:text-purple-700">

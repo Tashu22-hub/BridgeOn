@@ -13,7 +13,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
     cors: {
-        origin:"https://connect-on-frontend.vercel.app",
+        origin:"http://localhost:3000",
        
         methods: ['GET','POST','PUT','DELETE'],
         allowedHeaders: ['Authorization', 'Content-Type','my-custom-header'],
@@ -25,7 +25,7 @@ const io = socketio(server, {
 // Middleware
 app.use(helmet());
 app.use(cors({
-    origin:"https://connect-on-frontend.vercel.app",
+    origin:"http://localhost:3000",
     credentials: true
 }));
 app.use(express.json());

@@ -1,9 +1,9 @@
 import { io } from 'socket.io-client';
 
-const socket = io('https://connecton-backend.onrender.com', {
+const socket = io('http://localhost:5000', {
     withCredentials: true,
     extraHeaders: {
-        "my-custom-header": "value"
+        "my-custom-header": "value" 
     }
 });
 

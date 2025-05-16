@@ -9,7 +9,7 @@ const RoomManagement = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ 
     name: '',
     description: '',
     isPrivate: false,
@@ -27,7 +27,7 @@ const RoomManagement = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await fetch('https://connecton-backend.onrender.com/api/rooms/roomlist', {
+      const response = await fetch('http://localhost:5000/api/rooms/roomlist', {
         method:'GET',
         headers: {
   
@@ -53,7 +53,7 @@ const RoomManagement = () => {
         throw new Error('Password is required for private rooms.');
       }
 
-      const response = await fetch('https://connecton-backend.onrender.com/api/rooms', {
+      const response = await fetch('http://localhost:5000/api/rooms', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ const RoomManagement = () => {
     setError('');
     try {
       const response = await fetch(
-        `https://connecton-backend.onrender.com/api/rooms/${selectedRoom._id}`,
+        `http://localhost:5000/api/rooms/${selectedRoom._id}`,
         {
           method: 'PUT',
           headers: {
@@ -120,7 +120,7 @@ const RoomManagement = () => {
     setError('');
     try {
       const response = await fetch(
-        `https://connecton-backend.onrender.com/api/rooms/${roomId}`,
+        `http://localhost:5000/api/rooms/${roomId}`,
         {
           method: 'DELETE',
           headers: {
@@ -188,7 +188,7 @@ const RoomManagement = () => {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-white">Description</label>
+        <label className="block text-sm font-medium text-white ">Description</label>
         <textarea
           value={formData.description}
           onChange={handleInputChange("description")}

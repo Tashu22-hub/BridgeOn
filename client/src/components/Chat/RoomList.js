@@ -17,7 +17,7 @@ export const RoomList = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch('https://connecton-backend.onrender.com/api/rooms/roomlist', {
+        const response = await fetch('http://localhost:5000/api/rooms/roomlist', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -122,7 +122,7 @@ export const RoomList = () => {
 
   const handleJoinRoom = async (room, password = null) => {
     try {
-      const response = await fetch(`https://connecton-backend.onrender.com/api/rooms/${room._id}/join`, {
+      const response = await fetch(`http://localhost:5000/api/rooms/${room._id}/join`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export const RoomList = () => {
 
   return (
 <div className="container mx-auto p-4 bg-black min-h-screen text-white">
-      <h2 className="text-3xl font-bold mb-6 text-center text-purple-500">Available Rooms</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center text-purple-500">Available Zones</h2>
       
       {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
