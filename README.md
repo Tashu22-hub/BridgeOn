@@ -11,9 +11,8 @@ ConnectON is a real-time communication platform that allows users to join variou
 - **Real-Time Messaging**: Instant messaging within rooms using Socket.io.
 - **User Roles**: Differentiation between guests and authenticated users, with role-specific access.
 - **Responsive Design**: Frontend built with React, ensuring compatibility across devices.
-
-![Login Screen](./ss/login.jpg)
 ![Register Screen](./ss/reg.jpg)
+![Login Screen](./ss/login.jpg)
 ![Main Screen](./ss/mainS.jpg)
 ![Admin Main Screen](./ss/Rooms.jpg)
 ![UserManagement Screen](./ss/userm.jpg)
