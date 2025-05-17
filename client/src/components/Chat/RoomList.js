@@ -17,7 +17,7 @@ export const RoomList = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/rooms/roomlist', {
+        const response = await fetch('https://bridgeon-backend.onrender.com/api/rooms/roomlist', {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -122,7 +122,7 @@ export const RoomList = () => {
 
   const handleJoinRoom = async (room, password = null) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/rooms/${room._id}/join`, {
+      const response = await fetch(`https://bridgeon-backend.onrender.com/api/rooms/${room._id}/join`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

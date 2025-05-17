@@ -17,32 +17,34 @@ export const AuthProvider = ({ children }) => {
     }
     setLoading(false);
   }, []);
+const login = async (username, password) => {
+  try {
+    const response = await fetch('https://bridgeon-backend.onrender.com/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+      credentials: 'include'  // ✅ Add this line
+    });
 
-  const login = async (username, password) => {
-    try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error);
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error);
+    localStorage.setItem('token', data.token);
+    setUser({ token: data.token, role: data.role });
+    return true;
+  } catch (error) {
+    throw error;
+  }
+};
 
-      localStorage.setItem('token', data.token);
-      setUser({ token: data.token, role: data.role });
-      return true;
-    } catch (error) {
-      throw error;
-    }
-  };
 
   const register = async (username, password) => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch('https://bridgeon-backend.onrender.com/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
+        credentials: 'include' 
       });
 
       const data = await response.json();

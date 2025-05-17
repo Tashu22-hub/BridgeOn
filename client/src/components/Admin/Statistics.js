@@ -29,7 +29,7 @@ export const Statistics = () => {
     const fetchStats = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/api/admin/statistics?timeRange=${timeRange}`, {
+        const response = await fetch(`https://bridgeon-backend.onrender.com/api/admin/statistics?timeRange=${timeRange}`, {
           headers: {
             'Authorization': `Bearer ${user.token}`,
             'Content-Type': 'application/json'

@@ -82,7 +82,7 @@ export const ChatRoom = () => {
   // Initialize Socket Connection
   useEffect(() => {
     if (user) {
-      const newSocket = io('http://localhost:5000'); // Replace with your backend URL
+      const newSocket = io('https://bridgeon-backend.onrender.com'); // Replace with your backend URL
       setSocket(newSocket);
 
       newSocket.on('connect', () => {
