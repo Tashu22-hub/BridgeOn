@@ -8,13 +8,16 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/db');
 
+const allowedOrigins = [
+  "http://localhost:3000",                        // for development
+  "https://bridge-on-frontend.vercel.app"         // for production
+];
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
     cors: {
-        origin:"http://localhost:3000",
-       
+        origin:allowedOrigins,
         methods: ['GET','POST','PUT','DELETE'],
         allowedHeaders: ['Authorization', 'Content-Type','my-custom-header'],
         credentials: true,
@@ -25,7 +28,7 @@ const io = socketio(server, {
 // Middleware
 app.use(helmet());
 app.use(cors({
-    origin:"http://localhost:3000",
+    origin:allowedOrigins,
     credentials: true
 }));
 app.use(express.json());
