@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { Modal } from '../Common/Modal';
-
+ 
 export const RoomList = () => {
   const { user } = useAuth();
   const [rooms, setRooms] = useState([]);
