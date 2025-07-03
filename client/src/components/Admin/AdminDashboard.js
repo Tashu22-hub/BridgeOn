@@ -9,7 +9,7 @@ export const AdminDashboard = () => {
 
   return (
     <div className="container mx-auto p-4 bg-black text-white">
-      <h1 className="text-3xl font-bold mb-6 text-purple-600">Admin Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6 text-purple-600">Admin Dashboard</h1> 
       
       <div className="mb-6">
         <nav className="flex space-x-4 border-b border-gray-700">
