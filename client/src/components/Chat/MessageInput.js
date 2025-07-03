@@ -11,7 +11,7 @@ export const MessageInput = ({ onSendMessage }) => {
       setMessage('');
     }
   };
-
+ 
   return (
     <form onSubmit={handleSubmit} className="p-4 border-t border-gray-300">
       <div className="flex">
