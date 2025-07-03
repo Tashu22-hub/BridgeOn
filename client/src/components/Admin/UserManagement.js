@@ -11,7 +11,7 @@ export const UserManagement = () => {
   const [error, setError] = useState('');
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
-  const [successMessage,setSuccessMessage]=useState('');
+  const [successMessage,setSuccessMessage]=useState(''); 
 
   useEffect(() => {
     fetchUsers();
