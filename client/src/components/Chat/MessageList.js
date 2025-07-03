@@ -1,4 +1,4 @@
-// src/components/Chat/MessageList.js
+// src/components/Chat/MessageList.js 
 import React, { useRef, useEffect } from 'react';
 
 export const MessageList = ({ messages }) => {
