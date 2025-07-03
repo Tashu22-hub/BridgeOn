@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const Room = require('../models/Room');
 const User = require('../models/User');
 const authenticateToken = require('../middleware/auth');
-
+ 
 // Apply authentication to all routes
 router.use(authenticateToken);
 
