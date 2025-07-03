@@ -6,7 +6,7 @@ export const UserDetailsModal = ({ user, isOpen, onClose }) => {
   if (!user) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="User Details">
+    <Modal isOpen={isOpen} onClose={onClose} title="User Details"> 
       <div className="space-y-6">
         <div className="grid grid-cols-2 gap-6 text-sm">
           <div className="font-medium text-gray-50">Username:</div>
