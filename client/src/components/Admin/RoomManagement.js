@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { Modal } from '../Common/Modal';
-
+ 
 const RoomManagement = () => {
   const { user } = useAuth();
   const [rooms, setRooms] = useState([]);
