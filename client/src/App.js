@@ -7,7 +7,7 @@ import { Login } from './components/Auth/Login';
 import { Register } from './components/Auth/Register';
 import { RoomList } from './components/Chat/RoomList';
 import { ChatRoom } from './components/Chat/ChatRoom';
-import { AdminDashboard } from './components/Admin/AdminDashboard';
+import { AdminDashboard } from './components/Admin/AdminDashboard'; 
 
 const PrivateRoute = ({ children, requireAdmin = false }) => {
   const { user } = useAuth();
