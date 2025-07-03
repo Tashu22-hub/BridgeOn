@@ -6,7 +6,7 @@ import App from './App';
 import { createRoot } from 'react-dom/client';
 
 // Get the root DOM node
-const container = document.getElementById('root');
+const container = document.getElementById('root'); 
 
 // Create a React root and render your app
 const root = createRoot(container);
