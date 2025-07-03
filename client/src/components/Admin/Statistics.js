@@ -6,7 +6,7 @@ import {
 } from 'recharts';
 
 
-
+ 
 
 export const Statistics = () => {
   const { user } = useAuth();
